@@ -73,7 +73,7 @@ getRandomWord() {
 
 checkForBreach() {
     # TODO check if pwd got breached
-    echo "Test"
+    echo "NOT IMPLEMENTED"
 }
 
 getRandomNumber() {
@@ -92,6 +92,10 @@ getRandomUpperCaseChar() {
     printf "\\$(printf %o $((number + 65)))"
 }
 
+help() {
+
+}
+
 main() {
     case $genType in
         "complex")
@@ -100,12 +104,14 @@ main() {
             ;;
         "word-based")
             echo "word-based"
+            echo $(getWordBased)
             ;;
         "simple")
             echo "simple"
+            echo $(getSimple)
             ;;
         * )
-            echo "help"
+            help
             ;;
     esac
 }
