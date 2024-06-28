@@ -3,7 +3,7 @@
 INFILE=/words.txt
 
 SYMBOLS=("*" "/" "!" "@" "&" "%" "^" "$")
-SYMBOLS_LENGTH=${#symbols[@]}
+SYMBOLS_LENGTH=${#SYMBOLS[@]}
 
 genType=$1
 
@@ -14,35 +14,36 @@ getComplex() {
 
     pwd=""
 
-    for i in {0...$length}
+    for i in $(seq 1 $length)
     do
-        echo $i
-        rnd=$(getRandomNumber 0 4)
+        rnd=$(getRandomNumber 0 8)
 
-        case rnd in
-            "0" )
+        case $rnd in
+            0|1|2)
                 # a-z
                 c=$(getRandomLowerCaseChar)
                 pwd+=$c
                 ;;
-            "1" )
+            3|4|5)
                 # A-Z
                 c=$(getRandomUpperCaseChar)
                 pwd+=$c
                 ;;
-            "2" )
+            6|7)
                 # 0-9
                 n=$(getRandomNumber 0 10)
                 pwd+=$n
                 ;;
-            "3" )
+            8)
                 # */!@&%^$
-                rnd=$(getRandomNumber 0 $SYMBOLS_LENGTH)
-                c=${SYMBOLS[$rnd]}
+                rndSymbol=$(getRandomNumber 0 $((SYMBOLS_LENGTH-1)))
+                c=${SYMBOLS[$rndSymbol]}
                 pwd+=$c
                 ;;
         esac
     done
+
+    echo $pwd
 }
 
 getWordBased() {
@@ -58,6 +59,10 @@ getWordBased() {
 getSimple() {
     # Generate simple pwd
     # 2 Words + number
+    word1=$(getRandomWord)
+    word2=$(getRandomWord)
+    number=$(getRandomNumber 0 999)
+    echo "$word1$word2$number"
 }
 
 getRandomWord() {
@@ -68,6 +73,7 @@ getRandomWord() {
 
 checkForBreach() {
     # TODO check if pwd got breached
+    echo "Test"
 }
 
 getRandomNumber() {
@@ -77,12 +83,12 @@ getRandomNumber() {
 }
 
 getRandomLowerCaseChar() {
-    number=((getRandomNumber 0 26))
+    number=$(getRandomNumber 0 26)
     printf "\\$(printf %o $((number + 97)))"
 }
 
 getRandomUpperCaseChar() {
-    number=((getRandomNumber 0 26))
+    number=$(getRandomNumber 0 26)
     printf "\\$(printf %o $((number + 65)))"
 }
 
@@ -90,6 +96,7 @@ main() {
     case $genType in
         "complex")
             echo "complex"
+            echo $(getComplex)
             ;;
         "word-based")
             echo "word-based"
