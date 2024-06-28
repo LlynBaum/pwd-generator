@@ -2,11 +2,47 @@
 
 INFILE=/words.txt
 
+SYMBOLS=("*" "/" "!" "@" "&" "%" "^" "$")
+SYMBOLS_LENGTH=${#symbols[@]}
+
 genType=$1
 
 getComplex() {
     # Generate complex pwd
     # klsjdf8u3oii*+"*k4jinfioja9fs
+    length=15
+
+    pwd=""
+
+    for i in {0...$length}
+    do
+        echo $i
+        rnd=$(getRandomNumber 0 4)
+
+        case rnd in
+            "0" )
+                # a-z
+                c=$(getRandomLowerCaseChar)
+                pwd+=$c
+                ;;
+            "1" )
+                # A-Z
+                c=$(getRandomUpperCaseChar)
+                pwd+=$c
+                ;;
+            "2" )
+                # 0-9
+                n=$(getRandomNumber 0 10)
+                pwd+=$n
+                ;;
+            "3" )
+                # */!@&%^$
+                rnd=$(getRandomNumber 0 $SYMBOLS_LENGTH)
+                c=${SYMBOLS[$rnd]}
+                pwd+=$c
+                ;;
+        esac
+    done
 }
 
 getWordBased() {
