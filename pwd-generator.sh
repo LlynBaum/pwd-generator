@@ -1,5 +1,7 @@
 #!/bin/bash
 
+INFILE=/words.txt
+
 genType=$1
 
 getComplex() {
@@ -12,6 +14,10 @@ getWordBased() {
 
 getSimple() {
     # Generate simple pwd
+}
+
+getRandomWord() {
+    # Get Random word from words.txt
 }
 
 checkForBreach() {
