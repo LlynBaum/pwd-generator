@@ -35,8 +35,6 @@ main() {
     esac
 }
 
-src=$0
-
 if [ "$0" = "$BASH_SOURCE" ]; then
     main
 fi
