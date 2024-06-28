@@ -6,14 +6,17 @@ genType=$1
 
 getComplex() {
     # Generate complex pwd
+    # klsjdf8u3oii*+"*k4jinfioja9fs
 }
 
 getWordBased() {
     # Generate Word-Based pwd
+    # 4 words, sperated by -
 }
 
 getSimple() {
     # Generate simple pwd
+    # 2 Words + number
 }
 
 getRandomWord() {
