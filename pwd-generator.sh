@@ -11,7 +11,12 @@ getComplex() {
 
 getWordBased() {
     # Generate Word-Based pwd
-    # 4 words, sperated by -
+    # 4 words, separated by -
+    word1=$(getRandomWord)
+    word2=$(getRandomWord)
+    word3=$(getRandomWord)
+    word4=$(getRandomWord)
+    echo "$word1-$word2-$word3-$word4"
 }
 
 getSimple() {
@@ -21,6 +26,8 @@ getSimple() {
 
 getRandomWord() {
     # Get Random word from words.txt
+        word=$(shuf -n 1 $INFILE)
+        echo $word
 }
 
 checkForBreach() {
