@@ -2,6 +2,22 @@
 
 genType=$1
 
+getComplex() {
+    # Generate complex pwd
+}
+
+getWordBased() {
+    # Generate Word-Based pwd
+}
+
+getSimple() {
+    # Generate simple pwd
+}
+
+checkForBreach() {
+    # TODO check if pwd got breached
+}
+
 main() {
     case $genType in
         "complex")
