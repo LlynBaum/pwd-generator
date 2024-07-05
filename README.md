@@ -11,8 +11,7 @@ Dieses Projekt ist ein Bash-Skript, das verschiedene Arten von Passwörtern gene
 5. [Beispiele](#beispiele)
 6. [Skriptbeschreibung](#skriptbeschreibung)
 7. [Installation](#installation)
-8. [Beitrag](#beitrag)
-9. [Lizenz](#lizenz)
+8. [Lizenz](#lizenz)
 
 ## Überblick
 Der Passwort-Generator ist ein einfaches Bash-Skript, das verschiedene Arten von Passwörtern generieren kann. Es ermöglicht Benutzern, komplexe, wortbasierte und einfache Passwörter zu erstellen und zu verwenden.
@@ -96,8 +95,6 @@ Um dieses Projekt zu installieren und auszuführen, benötigen Sie eine Bash-She
    ```bash
    ./pwd-generator.sh [option] [--length|-l <length>] [--hash|-ha]
    ```
-## Beitrag
-Wenn Sie einen Fehler gefunden haben oder eine Verbesserung vorschlagen möchten, können Sie gerne einen Beitrag leisten. Bitte erstellen Sie ein Issue oder ein Pull-Request mit Ihren Änderungen.
 
 ## Lizenz
 Dieses Projekt ist lizenzfrei. Sie können es für persönliche oder Bildungszwecke verwenden und modifizieren.
