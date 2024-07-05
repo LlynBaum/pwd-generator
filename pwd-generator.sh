@@ -1,6 +1,7 @@
 #!/bin/bash
 
-INFILE=/words.txt
+INFILE="./words.txt"
+
 
 SYMBOLS=("*" "/" "!" "@" "&" "%" "^" "$")
 SYMBOLS_LENGTH=${#SYMBOLS[@]}
