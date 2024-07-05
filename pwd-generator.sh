@@ -145,7 +145,8 @@ generate() {
 }
 
 main() {
-    while true; do
+    count=0
+    while [ $count -lt 10 ]; do
         pwd=$(generate)
         checkForBreach $pwd
         isPwned=$?
@@ -153,7 +154,9 @@ main() {
             echo $pwd
             exit 0
         fi
+        ((count++))
     done
+    exit 1
 }
 
 if [ "$0" = "$BASH_SOURCE" ]; then
