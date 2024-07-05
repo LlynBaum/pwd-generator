@@ -14,7 +14,8 @@ additionalHash=false
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         "--length"|"-l") length="$2"; shift ;;
-        "--hash"|"-h") additionalHash=true ;;
+        "--hash"|"-ha") additionalHash=true ;;
+        "--help"|"-h") help; exit 0 ;;
         *) echo "Unknown parameter passed: $1"; help; exit 1 ;;
     esac
     shift
