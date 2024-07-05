@@ -63,3 +63,4 @@ Ausgabe: `objectconnection407`
 - getRandomNumber: Generiert eine zufällige Zahl innerhalb eines angegebenen Bereichs.
 - getRandomLowerCaseChar und getRandomUpperCaseChar: Generieren zufällige Klein- bzw. Großbuchstaben.
 
+## Author: Llyn Baumann & Kyle Meier
