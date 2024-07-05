@@ -173,7 +173,7 @@ main() {
         checkForBreach $pwd
         isPwned=$?
         if [ $isPwned -eq 0 ]; then
-            echo $pwd
+            echo "Password: $pwd"
 
             if $additionalHash; then
                 sha1_hash=$(sha1Hash $password)
