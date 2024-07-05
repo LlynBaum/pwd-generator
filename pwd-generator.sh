@@ -1,6 +1,7 @@
 #!/bin/bash
 
-INFILE=/words.txt
+INFILE="./words.txt"
+
 
 SYMBOLS=("*" "/" "!" "@" "&" "%" "^" "$")
 SYMBOLS_LENGTH=${#SYMBOLS[@]}
@@ -61,7 +62,7 @@ getSimple() {
     # 2 Words + number
     word1=$(getRandomWord)
     word2=$(getRandomWord)
-    number=$(getRandomNumber 0 999)
+    number=$(getRandomNumber 10 999)
     echo "$word1$word2$number"
 }
 
