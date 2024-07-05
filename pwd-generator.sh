@@ -103,7 +103,7 @@ checkForBreach() {
 
 sha1Hash() {
     pwd=$1
-    sha1_hash=$(echo -n $password | openssl dgst -sha1 | awk '{print $2}')
+    sha1_hash=$(echo -n $pwd | openssl dgst -sha1 | awk '{print $2}')
     echo $sha1_hash
 }
 
@@ -160,17 +160,23 @@ generate() {
             pwd=$(getSimple)
             ;;
         * )
-            help
-            exit 1
+            return 1
             ;;
     esac
     echo $pwd
+    return 0
 }
 
 main() {
     count=0
     while [ $count -lt 10 ]; do
         pwd=$(generate)
+
+        if [ $? -eq 1 ]; then
+            help
+            exit 1
+        fi
+
         checkForBreach $pwd
         isPwned=$?
         if [ $isPwned -eq 0 ]; then
