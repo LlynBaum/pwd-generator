@@ -64,3 +64,6 @@ Ausgabe: `objectconnection407`
 - getRandomLowerCaseChar und getRandomUpperCaseChar: Generieren zufällige Klein- bzw. Großbuchstaben.
 
 ## Author: Llyn Baumann & Kyle Meier
+
+## License
+This project is license-free. You are free to use and modify it for personal or educational purposes.
