@@ -53,7 +53,7 @@ Ausgabe: `journey-avoid-suit-point`
 Ausgabe: `objectconnection407`
 
 ## Skriptbeschreibung
-#### Das Skript password_generator.sh ist darauf ausgelegt, verschiedene Arten von Passwörtern zu generieren. Hier ist eine kurze Beschreibung der Hauptfunktionen:
+#### Das Skript pwd-generator.sh ist darauf ausgelegt, verschiedene Arten von Passwörtern zu generieren. Hier ist eine kurze Beschreibung der Hauptfunktionen:
 
 - getComplex: Generiert ein komplexes Passwort mit einer Länge von 15 Zeichen, bestehend aus zufälligen Gross- und Kleinbuchstaben, Zahlen und Symbolen.
 - getWordBased: Generiert ein wortbasiertes Passwort, das aus vier zufälligen Wörtern besteht, die durch Bindestriche getrennt sind.
@@ -63,3 +63,7 @@ Ausgabe: `objectconnection407`
 - getRandomNumber: Generiert eine zufällige Zahl innerhalb eines angegebenen Bereichs.
 - getRandomLowerCaseChar und getRandomUpperCaseChar: Generieren zufällige Klein- bzw. Großbuchstaben.
 
+## Author: Llyn Baumann & Kyle Meier
+
+## License
+This project is license-free. You are free to use and modify it for personal or educational purposes.
