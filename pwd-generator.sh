@@ -68,8 +68,8 @@ getSimple() {
 
 getRandomWord() {
     # Get Random word from words.txt
-        word=$(shuf -n 1 $INFILE)
-        echo $word
+    word=$(shuf -n 1 $INFILE)
+    echo $word
 }
 
 checkForBreach() {
