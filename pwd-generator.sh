@@ -126,7 +126,7 @@ getRandomUpperCaseChar() {
 help() {
     echo "Password Generator Script"
     echo ""
-    echo "Usage: $0 [option] [--length|-l <length>] [--hash|-h]"
+    echo "Usage: $0 [option] [--length|-l <length>] [--hash|-ha]"
     echo ""
     echo "Options:"
     echo "  complex      Generate a complex password with a mix of upper and lower case letters, numbers, and symbols."
@@ -136,7 +136,7 @@ help() {
     echo ""
     echo "Additional Options:"
     echo "  --length, -l <length>  Specify the length of the complex password."
-    echo "  --hash, -h             Output an additional hash of the generated password."
+    echo "  --hash, -ha            Output an additional hash of the generated password."
     echo ""
     echo "Example:"
     echo "  $0 complex --length 20 --hash"
