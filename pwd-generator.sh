@@ -93,7 +93,23 @@ getRandomUpperCaseChar() {
 }
 
 help() {
-
+    echo "Password Generator Script"
+    echo ""
+    echo "Usage: $0 [option]"
+    echo ""
+    echo "Options:"
+    echo "  complex      Generate a complex password with a mix of upper and lower case letters, numbers, and symbols."
+    echo "  word-based   Generate a word-based password composed of four random words separated by dashes."
+    echo "  simple       Generate a simple password with two random words followed by a number."
+    echo ""
+    echo "Example:"
+    echo "  $0 complex"
+    echo "  $0 word-based"
+    echo "  $0 simple"
+    echo ""
+    echo "This script generates passwords based on the specified option. The 'complex' option generates a more secure password,"
+    echo "'word-based' option generates a password that is easier to remember, and 'simple' option generates a password that is"
+    echo "a combination of words and a number."
 }
 
 main() {
