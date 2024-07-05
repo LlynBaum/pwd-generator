@@ -94,7 +94,7 @@ Um dieses Projekt zu installieren und auszuführen, benötigen Sie eine Bash-She
    ```
 5. Führen Sie das Skript mit den gewünschten Parametern aus:
    ```bash
-   ./pwd-generator.sh complex <option>
+   ./pwd-generator.sh [option] [--length|-l <length>] [--hash|-ha]
    ```
 ## Beitrag
 Wenn Sie einen Fehler gefunden haben oder eine Verbesserung vorschlagen möchten, können Sie gerne einen Beitrag leisten. Bitte erstellen Sie ein Issue oder ein Pull-Request mit Ihren Änderungen.
