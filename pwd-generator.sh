@@ -7,11 +7,22 @@ SYMBOLS=("*" "/" "!" "@" "&" "%" "^" "$")
 SYMBOLS_LENGTH=${#SYMBOLS[@]}
 
 genType=$1
+shift
+length=15
+additionalHash=false
+
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        "--length"|"-l") length="$2"; shift ;;
+        "--hash"|"-h") additionalHash=true ;;
+        *) echo "Unknown parameter passed: $1"; help; exit 1 ;;
+    esac
+    shift
+done
 
 getComplex() {
     # Generate complex pwd
     # klsjdf8u3oii*+"*k4jinfioja9fs
-    length=15
 
     pwd=""
 
@@ -75,7 +86,7 @@ getRandomWord() {
 checkForBreach() {
     password=$1
 
-    sha1_hash=$(echo -n $password | openssl dgst -sha1 | awk '{print $2}')
+    sha1_hash=$(sha1Hash $password)
 
     prefix=${sha1_hash:0:5}
     suffix=${sha1_hash:5}
@@ -87,6 +98,12 @@ checkForBreach() {
     else
         return 0
     fi
+}
+
+sha1Hash() {
+    pwd=$1
+    sha1_hash=$(echo -n $password | openssl dgst -sha1 | awk '{print $2}')
+    echo $sha1_hash
 }
 
 getRandomNumber() {
@@ -108,16 +125,21 @@ getRandomUpperCaseChar() {
 help() {
     echo "Password Generator Script"
     echo ""
-    echo "Usage: $0 [option]"
+    echo "Usage: $0 [option] [--length|-l <length>] [--hash|-h]"
     echo ""
     echo "Options:"
     echo "  complex      Generate a complex password with a mix of upper and lower case letters, numbers, and symbols."
+    echo "               Use --length or -l to specify the length of the complex password."
     echo "  word-based   Generate a word-based password composed of four random words separated by dashes."
     echo "  simple       Generate a simple password with two random words followed by a number."
     echo ""
+    echo "Additional Options:"
+    echo "  --length, -l <length>  Specify the length of the complex password."
+    echo "  --hash, -h             Output an additional hash of the generated password."
+    echo ""
     echo "Example:"
-    echo "  $0 complex"
-    echo "  $0 word-based"
+    echo "  $0 complex --length 20 --hash"
+    echo "  $0 word-based --hash"
     echo "  $0 simple"
     echo ""
     echo "This script generates passwords based on the specified option. The 'complex' option generates a more secure password,"
@@ -129,20 +151,19 @@ generate() {
     case $genType in
         "complex")
             pwd=$(getComplex)
-            echo $pwd
             ;;
         "word-based")
             pwd=$(getWordBased)
-            echo $pwd
             ;;
         "simple")
             pwd=$(getSimple)
-            echo $pwd
             ;;
         * )
             help
+            exit 1
             ;;
     esac
+    echo $pwd
 }
 
 main() {
@@ -153,6 +174,12 @@ main() {
         isPwned=$?
         if [ $isPwned -eq 0 ]; then
             echo $pwd
+
+            if $additionalHash; then
+                sha1_hash=$(sha1Hash $password)
+                echo "SHA-1: $sha1_hash"
+            fi
+
             exit 0
         fi
         ((count++))
