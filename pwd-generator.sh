@@ -68,13 +68,25 @@ getSimple() {
 
 getRandomWord() {
     # Get Random word from words.txt
-        word=$(shuf -n 1 $INFILE)
-        echo $word
+    word=$(shuf -n 1 $INFILE)
+    echo $word
 }
 
 checkForBreach() {
-    # TODO check if pwd got breached
-    echo "NOT IMPLEMENTED"
+    password=$1
+
+    sha1_hash=$(echo -n $password | openssl dgst -sha1 | awk '{print $2}')
+
+    prefix=${sha1_hash:0:5}
+    suffix=${sha1_hash:5}
+
+    response=$(curl -s "https://api.pwnedpasswords.com/range/$prefix")
+
+    if echo "$response" | grep -iq "$suffix"; then
+        return 1
+    else
+        return 0
+    fi
 }
 
 getRandomNumber() {
@@ -113,24 +125,39 @@ help() {
     echo "a combination of words and a number."
 }
 
-main() {
+generate() {
     case $genType in
         "complex")
-            echo "complex"
-            echo $(getComplex)
+            pwd=$(getComplex)
+            echo $pwd
             ;;
         "word-based")
-            echo "word-based"
-            echo $(getWordBased)
+            pwd=$(getWordBased)
+            echo $pwd
             ;;
         "simple")
-            echo "simple"
-            echo $(getSimple)
+            pwd=$(getSimple)
+            echo $pwd
             ;;
         * )
             help
             ;;
     esac
+}
+
+main() {
+    count=0
+    while [ $count -lt 10 ]; do
+        pwd=$(generate)
+        checkForBreach $pwd
+        isPwned=$?
+        if [ $isPwned -eq 0 ]; then
+            echo $pwd
+            exit 0
+        fi
+        ((count++))
+    done
+    exit 1
 }
 
 if [ "$0" = "$BASH_SOURCE" ]; then
