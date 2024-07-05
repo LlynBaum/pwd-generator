@@ -6,23 +6,19 @@ Dieses Projekt ist ein Bash-Skript, das verschiedene Arten von Passwörtern gene
 ## Inhaltsverzeichnis
 1. [Überblick](#überblick)
 2. [Autor](#autor)
-3. [Version](#version)
-4. [Funktionen](#funktionen)
-5. [Verwendung](#verwendung)
-6. [Beispiele](#beispiele)
-7. [Skriptbeschreibung](#skriptbeschreibung)
-8. [Installation](#installation)
-9. [Beitrag](#beitrag)
-10. [Lizenz](#lizenz)
+3. [Funktionen](#funktionen)
+4. [Verwendung](#verwendung)
+5. [Beispiele](#beispiele)
+6. [Skriptbeschreibung](#skriptbeschreibung)
+7. [Installation](#installation)
+8. [Beitrag](#beitrag)
+9. [Lizenz](#lizenz)
 
 ## Überblick
 Der Passwort-Generator ist ein einfaches Bash-Skript, das verschiedene Arten von Passwörtern generieren kann. Es ermöglicht Benutzern, komplexe, wortbasierte und einfache Passwörter zu erstellen und zu verwenden.
 
 ## Autor
 Llyn Baumann & Kyle Meier
-
-## Version
-1.0
 
 ## Funktionen
 - Generierung komplexer Passwörter mit zufälligen Zeichen, Zahlen und Symbolen.
