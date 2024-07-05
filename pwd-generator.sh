@@ -9,8 +9,6 @@ SYMBOLS_LENGTH=${#SYMBOLS[@]}
 genType=$1
 
 getComplex() {
-    # Generate complex pwd
-    # klsjdf8u3oii*+"*k4jinfioja9fs
     length=15
 
     pwd=""
@@ -48,8 +46,6 @@ getComplex() {
 }
 
 getWordBased() {
-    # Generate Word-Based pwd
-    # 4 words, separated by -
     word1=$(getRandomWord)
     word2=$(getRandomWord)
     word3=$(getRandomWord)
@@ -58,8 +54,6 @@ getWordBased() {
 }
 
 getSimple() {
-    # Generate simple pwd
-    # 2 Words + number
     word1=$(getRandomWord)
     word2=$(getRandomWord)
     number=$(getRandomNumber 10 999)
@@ -67,9 +61,8 @@ getSimple() {
 }
 
 getRandomWord() {
-    # Get Random word from words.txt
-        word=$(shuf -n 1 $INFILE)
-        echo $word
+    word=$(shuf -n 1 $INFILE)
+    echo $word
 }
 
 checkForBreach() {
