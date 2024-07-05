@@ -75,7 +75,7 @@ Das Skript `pwd-generator.sh` ist darauf ausgelegt, verschiedene Arten von Passw
 - `checkForBreach`: Überprüft, ob das generierte Passwort in bekannten Sicherheitsverletzungen enthalten ist.
 - `sha1Hash`: Berechnet den SHA-1 Hash eines Passworts.
 - `getRandomNumber`: Generiert eine zufällige Zahl innerhalb eines angegebenen Bereichs.
-- `getRandomLowerCaseChar` und `getRandomUpperCaseChar`: Generieren zufällige Klein- bzw. Großbuchstaben.
+- `getRandomLowerCaseChar` und `getRandomUpperCaseChar`: Generieren zufällige Klein- bzw. Grossbuchstaben.
 
 ## Installation
 Um dieses Projekt zu installieren und auszuführen, benötigen Sie eine Bash-Shell und die Datei `words.txt`, die eine Liste von Wörtern enthält. Befolgen Sie die folgenden Schritte:
