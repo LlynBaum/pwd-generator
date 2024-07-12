@@ -6,6 +6,11 @@ INFILE="./words.txt"
 SYMBOLS=("*" "/" "!" "@" "&" "%" "^" "$")
 SYMBOLS_LENGTH=${#SYMBOLS[@]}
 
+if [ $# -eq 0 ] || [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+    help
+    exit 0
+fi
+
 genType=$1
 shift
 length=15
@@ -15,8 +20,13 @@ while [[ "$#" -gt 0 ]]; do
     case $1 in
         "--length"|"-l") length="$2"; shift ;;
         "--hash"|"-ha") additionalHash=true ;;
-        "--help"|"-h") help; exit 0 ;;
-        *) echo "Unknown parameter passed: $1"; help; exit 1 ;;
+        "--help"|"-h") 
+            help
+            exit 0 ;;
+        *) 
+            echo "Unknown parameter passed: $1"
+            help
+            exit 1 ;;
     esac
     shift
 done
